@@ -1,0 +1,31 @@
+# This is example from README.md
+# I just want to be sure my example works properly
+
+Feature: Steps for profile updating feature
+
+  # Idea for refactoring: split to `users.steps` and `navigation.steps`
+
+  Scenario: Given user {word}
+
+    When I send request GET /
+     And click on "Sign in" button
+     And enter "~param~" into input[name="nickname"]
+     And enter "I Love Bob" into input[name="password"]
+     And click on "Enter" button
+
+  Scenario: Given profile page
+
+    When I send request GET /profile
+
+  Scenario: When {}enters new phone number
+
+    When I enter "~next phone number~" into input[name="phone_number"]
+     And click on "Update" button
+
+  Scenario: When {}reloads the page
+
+    When I send request GET ~state $.current_url~
+
+  Scenario: Then he/she see new phone number
+
+    Then '~value from input[name="phone_number"]~' should be equal to "~last phone number~"

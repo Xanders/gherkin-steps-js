@@ -1,0 +1,36 @@
+{
+  "name": "gherkin-steps",
+  "version": "1.0.0",
+  "description": "Write Cucumber step definitions with Gherkin syntax",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "cucumber-js --require register.js --require 'features/**/*.js' --require 'features/**/*.steps'"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xanders/gherkin-steps-js.git"
+  },
+  "keywords": [
+    "cucumber",
+    "gherkin"
+  ],
+  "author": "Xanders <necropolis@inbox.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xanders/gherkin-steps-js/issues"
+  },
+  "homepage": "https://github.com/Xanders/gherkin-steps-js#readme",
+  "dependencies": {
+    "gherkin": "5.1.0",
+    "jsonpath": "1.0.2"
+  },
+  "devDependencies": {
+    "cucumber": "5.1.0"
+  },
+  "peerDependencies": {
+    "cucumber": "^5.0.0"
+  }
+}

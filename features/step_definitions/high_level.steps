@@ -1,0 +1,47 @@
+Feature: There are some steps written with Gherkin syntax
+
+  Scenario: When I put 4 into storage
+
+    When I save 2 in the storage
+     And I add 2 to value in the storage
+
+  Scenario: Then I check acceptance step works
+
+    Then 42 should be equal to 42
+
+  Scenario: Given a step with {int} argument that works
+
+    Then ~param~ should be equal to 1
+
+  Scenario: Then step with {int} arguments should {word} too
+
+    Then ~param 1~ should be equal to 2
+     And "~param 2~" should be equal to "work"
+
+  Scenario: Given a step which parse and store {heavy_object}
+
+    When I save ~param~ in the storage
+
+  Scenario: Given a very strange Cucumber Expression with {int} argument and non-escaped `{` sign (1 param)
+
+    Then ~param~ should be equal to 1
+
+  Scenario: Then I check custom helpers works
+
+    Then ~sum of 2 and 2~ should be equal to 4
+
+  Scenario: Given /^some (great|ugly) regexp$/
+
+    Then "~param~" should be equal to "great"
+
+  Scenario: Given {word} state tests
+
+    Then {"some": "great", "json": [1, 2, 3, 4]} should be stored as $.fixtures
+     And $.fixtures..[?(@ == "~param~")] should exists
+     And [$.fixtures.json[?(@ > 3)]] should not be empty
+     And {"an_answer": ~state $.fixtures.json[(@.length - 1)]~~state $.fixtures.json[1]~} should be equal to {"an_answer": 42}
+     And [~state [$.fixtures.json[:2]]~] should be equal to [1, 2]
+
+  Scenario: Given human-readable arrays and numbers
+
+    Then A, B, one and two should be equal to ["A", "B", 1, 2]
