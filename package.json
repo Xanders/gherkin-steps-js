@@ -1,13 +1,14 @@
 {
   "name": "gherkin-steps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Write Cucumber step definitions with Gherkin syntax",
   "main": "lib/index.js",
   "scripts": {
     "test": "cucumber-js --require register.js --require 'features/**/*.js' --require 'features/**/*.steps'"
   },
   "files": [
-    "lib"
+    "lib",
+    "register.js"
   ],
   "repository": {
     "type": "git",
