@@ -25,6 +25,7 @@ It is like calling steps from steps, but Good™, not Evil™.
   * [Additional Parameter Types](#additional-parameter-types)
   * **TODO:** [Formatters](#formatters)
   * **TODO:** [Snippets](#snippets)
+* [Changelog](https://github.com/Xanders/gherkin-steps-js/tree/master/CHANGELOG.md)
 
 ## Show me the code
 
@@ -245,7 +246,7 @@ Then in `package.json` scripts:
   ...
   "scripts": {
     ...
-    "test": "cucumber-js --require-module gherkin-steps/register --require 'features/**/*.js' --require 'features/**/*.steps'",
+    "test": "cucumber-js --require-module gherkin-steps/register --require 'features/support/world.js' --require 'features/**/*.js' --require 'features/**/*.steps'",
     ...
   },
   ...
@@ -255,19 +256,39 @@ Then in `package.json` scripts:
 Or in `cucumber.js`:
 
 ```javascript
-let default = [
+let arguments = [
   "--require-module gherkin-steps/register", // for Gherkin Steps support
+  "--require 'features/support/world.js'", // load World at first
   "--require 'features/**/*.js'", // load basic steps and support files
   "--require 'features/**/*.steps'", // load steps with Gherkin syntax
   // formatters and other options
 ].join(' ');
 
-module.exports = { default };
+module.exports = {
+  default: arguments
+};
 ```
 
 Then just add some files with `.steps` extension into `step_definitions` folder.
 
 Refer to [features](https://github.com/Xanders/gherkin-steps-js/tree/master/features) folder in this repo for examples.
+
+**Important:** Requiring `gherkin-steps/register` module will add support for syntax only. In order to use additional features like [State](#state), [Acceptance](#acceptance) or [Additional Parameter Types](#additional-parameter-types), please add following line to your `features/support/world.js`:
+
+```javascript
+require('gherkin-steps/all');
+```
+
+You also can include certain features only, like this:
+
+```javascript
+require('gherkin-steps/lib/state');
+require('gherkin-steps/lib/acceptance');
+require('gherkin-steps/lib/parameter_types');
+require('gherkin-steps/lib/parameter_types/json'); // or even more granular
+```
+
+Make sure to require World before other support files.
 
 **Note:** Cucumber.js `5.x.x` only supported for now. Volunteers are welcome!
 

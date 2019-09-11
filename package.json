@@ -4,7 +4,7 @@
   "description": "Write Cucumber step definitions with Gherkin syntax",
   "main": "lib/index.js",
   "scripts": {
-    "test": "cucumber-js --require register.js --require 'features/**/*.js' --require 'features/**/*.steps'"
+    "test": "cucumber-js --require register.js --require 'features/support/world.js' --require 'features/**/*.js' --require 'features/**/*.steps'"
   },
   "files": [
     "lib",
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Xanders/gherkin-steps-js#readme",
   "dependencies": {
+    "cucumber-expressions": "6.6.2",
     "gherkin": "5.1.0",
     "jsonpath": "1.0.2"
   },
