@@ -1,6 +1,6 @@
 {
   "name": "gherkin-steps",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Write Cucumber step definitions with Gherkin syntax",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
   },
   "files": [
     "lib",
-    "register.js"
+    "register.js",
+    "all.js"
   ],
   "repository": {
     "type": "git",
