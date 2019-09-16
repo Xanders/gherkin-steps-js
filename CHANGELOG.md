@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2019-09-16
+### Fixed
+- Avoid to catch structured_type regexp in Cucumber Regular Expressions
+
 ## [1.0.2] - 2019-09-12
 ### Fixed
 - Add missed all.js to package
@@ -18,7 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First public version
 
-[Unreleased]: https://github.com/Xanders/gherkin-steps-js/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/Xanders/gherkin-steps-js/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/Xanders/gherkin-steps-js/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Xanders/gherkin-steps-js/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Xanders/gherkin-steps-js/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Xanders/gherkin-steps-js/releases/tag/v1.0.0
